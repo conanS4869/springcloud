@@ -9,7 +9,17 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>springcloud-provider-dept-8001</artifactId>
+    <artifactId>springcloud-provider-dept-hystrix-8001</artifactId>
+
+<!--
+    服务熔断： 服务端   某个服务超时或者异常，引起熔断 保险丝
+
+    服务降级： 客户端   从整体网站负载考虑~  当某个服务端熔断或关闭之后，服务将不再被调用
+              此时在客户端可，可以准备一个FallbackFactory ，返回一个默认的值，整体的服务水平下降；好歹能用
+              比直接挂掉好
+
+-->
+
     <dependencies>
         <dependency>
             <groupId>com.conan</groupId>
@@ -66,8 +76,6 @@
             <artifactId>spring-cloud-starter-hystrix</artifactId>
             <version>1.4.7.RELEASE</version>
         </dependency>
-
     </dependencies>
-
 
 </project>

@@ -1,0 +1,29 @@
+server:
+  port: 8001
+mybatis:
+  type-aliases-package: com.conan.springcloud.pojo
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+#  configuration:
+#    map-underscore-to-camel-case: true
+spring:
+  application:
+    name: springcloud-provider-dept
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.80.128:3306/db01?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+
+#  eureka 配置 服务注册到哪里
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/,http://localhost:7003/eureka/
+  instance:
+    instance-id: springcloud-provider-dept-8001  # 修改eureka上默认描述信息
+
+info:
+  app.name: conan-springcloud
+  company.name: blog.conan.com
